@@ -262,6 +262,29 @@ int MOAIBtVector3::_normalized ( lua_State* L ) {
 	return 1;	
 }
 
+//----------------------------------------------------------------//
+/**	@name	toArray
+	@text	Returns  MOAIBtVector3 vector contents as a lua array
+	@in		MOAIBtVector3 self
+
+	@out		A lua array
+*/
+
+int MOAIBtVector3::_toArray ( lua_State* L ) {
+	MOAI_LUA_SETUP ( MOAIBtVector3, "U" ) // this macro initializes the 'self' variable and type checks arguments
+	
+	lua_newtable( state );
+	
+	lua_pushnumber( state , self->mBtVector3->getX() );
+	lua_rawseti( state , 2, 1 );
+	lua_pushnumber( state , self->mBtVector3->getY() );
+	lua_rawseti( state , 2, 2 );
+	lua_pushnumber( L , self->mBtVector3->getZ() );
+	lua_rawseti( state , 2, 3 );
+	
+	return 1;	
+}
+
 
 //----------------------------------------------------------------//
 void MOAIBtVector3::RegisterLuaClass ( MOAILuaState& state ) {
@@ -301,6 +324,7 @@ void MOAIBtVector3::RegisterLuaFuncs ( MOAILuaState& state ) {
 		{ "setX"		, _setX },
 		{ "setY"		, _setY },
 		{ "setZ"		, _setZ },
+		{ "toArray"		,_toArray },
 		{ NULL, NULL }
 	};
 

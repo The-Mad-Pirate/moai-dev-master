@@ -35,6 +35,7 @@ private:
 	static int		_setZ			( lua_State* L );
 	static int		_normalize		( lua_State* L );	
 	static int		_normalized		( lua_State* L );
+	static int		_toArray		( lua_State* L );
 //	static int		_instanceHello			( lua_State* L );
 
 public:
