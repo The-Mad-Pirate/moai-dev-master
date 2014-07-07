@@ -24,6 +24,7 @@ private:
 	
 	//----------------------------------------------------------------//
 	static int		_length			( lua_State* L );
+	static int		_length2		( lua_State* L );
 	static int		_norm			( lua_State* L );
 	static int		_setValue		( lua_State* L );
 	static int		_getX			( lua_State* L );

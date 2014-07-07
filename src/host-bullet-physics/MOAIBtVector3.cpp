@@ -50,6 +50,22 @@ int MOAIBtVector3::_length ( lua_State* L ) {
 }
 
 //----------------------------------------------------------------//
+/**	@name	length2
+	@text	Obtains MOAIBtVector3 vector square lenght value
+	@in		MOAIBtVector3 self
+
+	@out		Square length ot the MOAIBtVector3 vector
+*/
+
+int MOAIBtVector3::_length2 ( lua_State* L ) {
+	MOAI_LUA_SETUP ( MOAIBtVector3, "U" ) // this macro initializes the 'self' variable and type checks arguments
+	btScalar vectorLength2 = self->mBtVector3->length2();
+	lua_pushnumber( state , vectorLength2);
+	
+	return 1;
+}
+
+//----------------------------------------------------------------//
 /**	@name	norm
 	@text	Obtains MOAIBtVector3 vector norm value
 	@in		MOAIBtVector3 self
@@ -223,8 +239,8 @@ int MOAIBtVector3::_normalize ( lua_State* L ) {
 	return 0;	
 }
 //----------------------------------------------------------------//
-/**	@name	normalize
-	@text	Return a normalizes version of current MOAIBtVector3 vector
+/**	@name	normalized
+	@text	Return a normalized version of current MOAIBtVector3 vector
 	@in		MOAIBtVector3 self
 
 	@out		MOAIBtVector3
@@ -241,7 +257,7 @@ int MOAIBtVector3::_normalized ( lua_State* L ) {
 	lua_pushnumber( state , btNormalizedVector.getX());
 	mNormalizedVector->PushLuaUserdata(state);
 	mNormalizedVector->_setValue(state);
-	self->PushLuaUserdata(state);
+	self->PushLuaUserdata(state);	
 	
 	return 1;	
 }
@@ -274,6 +290,7 @@ void MOAIBtVector3::RegisterLuaFuncs ( MOAILuaState& state ) {
 	// here are the instance methods:
 	luaL_Reg regTable [] = {
 		{ "length"		,_length },
+		{ "length2"		,_length2 },
 		{ "norm"		,_norm },
 		{ "normalize"	,_normalize },
 		{ "normalized"	,_normalized },
