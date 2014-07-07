@@ -18,6 +18,7 @@ end
 function TestMOAIBtVector3:tearDown()
     self.nullVector = nil
 	self.unityVector = nil
+	self.vector = nil
 end
 
 --testNew
@@ -35,6 +36,10 @@ end
 
 function TestMOAIBtVector3:testLengthNullVector()
 	assertEquals( self.nullVector:length() , 0.0)
+end
+
+function TestMOAIBtVector3:testLength2Vector()
+	assertEquals( self.vector:length2() , 350.0)
 end
 
 function TestMOAIBtVector3:testNormNullVector()
@@ -91,4 +96,4 @@ function TestMOAIBtVector3:testVectorNormilized()
 	assertEquals(type(vector),"userdata")
 	assertEquals(vector:getClassName(),"MOAIBtVector3")
 	assertEquals( vector:norm() , 1.0)
-end 
+end
