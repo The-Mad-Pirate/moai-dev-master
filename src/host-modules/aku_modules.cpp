@@ -71,6 +71,10 @@ void AKUModulesAppFinalize () {
 
 //----------------------------------------------------------------//
 void AKUModulesAppInitialize () {
+	
+	#if AKU_WITH_BULLET_PHYSICS
+		AKUBulletPhysicsAppInitialize ();
+	#endif	
 
 	#if AKU_WITH_BOX2D
 		AKUBox2DAppInitialize ();
@@ -127,6 +131,10 @@ void AKUModulesAppInitialize () {
 
 //----------------------------------------------------------------//
 void AKUModulesContextInitialize () {
+	
+	#if AKU_WITH_BULLET_PHYSICS
+		AKUBulletPhysicsContextInitialize ();
+	#endif
 
 	#if AKU_WITH_BOX2D
 		AKUBox2DContextInitialize ();
