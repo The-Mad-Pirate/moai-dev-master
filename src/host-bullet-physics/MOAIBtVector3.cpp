@@ -285,6 +285,28 @@ int MOAIBtVector3::_toArray ( lua_State* L ) {
 	return 1;	
 }
 
+int MOAIBtVector3::_distance	( lua_State* L ){return 0;};
+int MOAIBtVector3::_distance2( lua_State* L ){return 0;};
+int MOAIBtVector3::_dot( lua_State* L ){return 0;};
+int MOAIBtVector3::_cross( lua_State* L ){return 0;};
+int MOAIBtVector3::_safeNormalize( lua_State* L ){return 0;};
+int MOAIBtVector3::_rotate( lua_State* L ){return 0;};
+int MOAIBtVector3::_angle( lua_State* L ){return 0;};
+int MOAIBtVector3::_triple( lua_State* L ){return 0;};	
+int MOAIBtVector3::_minAxis( lua_State* L ){return 0;};
+int MOAIBtVector3::_furthestAxis( lua_State* L ){return 0;};
+int MOAIBtVector3::_closestAxis( lua_State* L ){return 0;};
+int MOAIBtVector3::_setInterpolate3( lua_State* L ){return 0;};
+int MOAIBtVector3::_lerp( lua_State* L ){return 0;};
+int MOAIBtVector3::_setMax( lua_State* L ){return 0;};
+int MOAIBtVector3::_setMin( lua_State* L ){return 0;};
+int MOAIBtVector3::_getSkewSymmetricMatrix( lua_State* L ){return 0;};
+int MOAIBtVector3::_setZero( lua_State* L ){return 0;};
+int MOAIBtVector3::_isZero( lua_State* L ){return 0;};
+int MOAIBtVector3::_fuzzyZero( lua_State* L ){return 0;};
+int MOAIBtVector3::_maxDot( lua_State* L ){return 0;};
+int MOAIBtVector3::_minDot( lua_State* L ){return 0;};
+int MOAIBtVector3::_dot3( lua_State* L ){return 0;};
 
 //----------------------------------------------------------------//
 void MOAIBtVector3::RegisterLuaClass ( MOAILuaState& state ) {
@@ -303,7 +325,7 @@ void MOAIBtVector3::RegisterLuaClass ( MOAILuaState& state ) {
 
 	luaL_register ( state, 0, regTable );
 }
-
+	
 //----------------------------------------------------------------//
 void MOAIBtVector3::RegisterLuaFuncs ( MOAILuaState& state ) {
 
@@ -312,19 +334,41 @@ void MOAIBtVector3::RegisterLuaFuncs ( MOAILuaState& state ) {
 
 	// here are the instance methods:
 	luaL_Reg regTable [] = {
-		{ "length"		,_length },
-		{ "length2"		,_length2 },
-		{ "norm"		,_norm },
-		{ "normalize"	,_normalize },
-		{ "normalized"	,_normalized },
-		{ "setValue"	, _setValue },
-		{ "getX"		, _getX },
-		{ "getY"		, _getY },
-		{ "getZ"		, _getZ },
-		{ "setX"		, _setX },
-		{ "setY"		, _setY },
-		{ "setZ"		, _setZ },
-		{ "toArray"		,_toArray },
+		{ "length"					,_length },
+		{ "length2"					,_length2 },
+		{ "norm"					,_norm },
+		{ "normalize"				,_normalize },
+		{ "normalized"				,_normalized },
+		{ "setValue"				, _setValue },
+		{ "getX"					, _getX },
+		{ "getY"					, _getY },
+		{ "getZ"					, _getZ },
+		{ "setX"					, _setX },
+		{ "setY"					, _setY },
+		{ "setZ"					, _setZ },
+		{ "toArray"					,_toArray },
+		{"distance"					,_distance},
+		{"distance2"				,_distance2},
+		{"dot"						,_dot},
+		{"cross"					,_cross},
+		{"safeNormalize"			,_safeNormalize},
+		{"rotate"					,_rotate},
+		{"angle"					,_angle},
+		{"triple"					,_triple},	
+		{"minAxis"					,_minAxis},
+		{"furthestAxis"				,_furthestAxis},
+		{"closestAxis"				,_closestAxis},
+		{"setInterpolate3"			,_setInterpolate3},
+		{"lerp"						,_lerp},
+		{"setMax"					,_setMax},
+		{"setMin"					,_setMin},
+		{"getSkewSymmetricMatrix"	,_getSkewSymmetricMatrix},
+		{"setZero"					,_setZero},
+		{"isZero"					,_isZero},
+		{"fuzzyZero"				,_fuzzyZero},
+		{"maxDot"					,_maxDot},
+		{"minDot"					,_minDot},
+		{"dot3"						,_dot3},					
 		{ NULL, NULL }
 	};
 
