@@ -12,6 +12,10 @@
 //----------------------------------------------------------------//
 void AKUModulesAppFinalize () {
 	
+	#if AKU_WITH_BULLET_PHYSICS
+		AKUBulletPhysicsAppFinalize ();
+	#endif
+	
 	#if AKU_WITH_BOX2D
 		AKUBox2DAppFinalize ();
 	#endif
