@@ -6,6 +6,10 @@
 
 #include <host-modules/aku_modules_config.h>
 
+#if AKU_WITH_BULLET_PHYSICS
+	#include <host-bullet-physics/host.h>
+#endif
+
 #if AKU_WITH_BOX2D
 	#include <moai-box2d/host.h>
 #endif
