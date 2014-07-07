@@ -42,6 +42,13 @@ function TestMOAIBtVector3:testLength2Vector()
 	assertEquals( self.vector:length2() , 350.0)
 end
 
+function TestMOAIBtVector3:testToArrayVector()
+	local v = self.vector:toArray()
+	assertEquals( type(v) , "table" )	
+	--print( v[1] , v[2] , v[3] )
+	assertEquals( v , {15,5,10} )
+end
+
 function TestMOAIBtVector3:testNormNullVector()
 	assertEquals( self.nullVector:norm() , 0.0)
 end
