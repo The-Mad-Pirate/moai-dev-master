@@ -35,7 +35,14 @@ function TestMOAIBtVector3:testNewUnity()
 end
 
 function TestMOAIBtVector3:testLengthNullVector()
+	--print( self.nullVector:length() )
 	assertEquals( self.nullVector:length() , 0.0)
+end
+
+function TestMOAIBtVector3:testDotVector()
+	local oneVector = MOAIBtVector3.new()
+	oneVector:setValue(1,1,1)
+	assertEquals( self.vector:dot( oneVector ) , 30.0 )
 end
 
 function TestMOAIBtVector3:testLength2Vector()
@@ -47,6 +54,15 @@ function TestMOAIBtVector3:testToArrayVector()
 	assertEquals( type(v) , "table" )	
 	--print( v[1] , v[2] , v[3] )
 	assertEquals( v , {15,5,10} )
+end
+
+function TestMOAIBtVector3:testSetZeroVector()
+	local vector = self.vector
+	vector:setZero()
+	local v = vector:toArray()
+	assertEquals( type(v) , "table" )	
+	--print( v[1] , v[2] , v[3] )
+	assertEquals( v , {0,0,0} )
 end
 
 function TestMOAIBtVector3:testNormNullVector()
@@ -91,9 +107,15 @@ function TestMOAIBtVector3:testVectorSetZ()
 	assertEquals( vector:getZ() , 300.0)
 end
 
-function TestMOAIBtVector3:testVectorNormilize()
+function TestMOAIBtVector3:testVectorNormalize()
 	local vector = self.vector
 	vector:normalize()
+	assertEquals( vector:norm() , 1.0)
+end
+
+function TestMOAIBtVector3:testVectorSafeNormalize()
+	local vector = self.vector
+	vector:safeNormalize()
 	assertEquals( vector:norm() , 1.0)
 end
 
