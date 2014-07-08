@@ -45,6 +45,11 @@ function TestMOAIBtVector3:testDotVector()
 	assertEquals( self.vector:dot( oneVector ) , 30.0 )
 end
 
+function TestMOAIBtVector3:testDotVectorFail()
+	local notAVector = MOAIAction.new()
+	assertIsNil( self.vector:dot( notAVector ) )
+end
+
 function TestMOAIBtVector3:testLength2Vector()
 	assertEquals( self.vector:length2() , 350.0)
 end
