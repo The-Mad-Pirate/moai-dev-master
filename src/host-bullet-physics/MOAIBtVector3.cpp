@@ -300,11 +300,17 @@ int MOAIBtVector3::_dot( lua_State* L )
 {
 	MOAI_LUA_SETUP ( MOAIBtVector3, "UU" ) // this macro initializes the 'self' variable and type checks arguments
 	
-	MOAIBtVector3* other = state.GetLuaObject< MOAIBtVector3 >( 2, true );
-	btScalar dotResult = self->mBtVector3->dot( *(other->mBtVector3) );
-	lua_pushnumber( state , dotResult );
+	MOAIBtVector3* other = state.GetLuaObject< MOAIBtVector3 >( 2, false );
+	if( other )
+	{
+		btScalar dotResult = self->mBtVector3->dot( *(other->mBtVector3) );
+		lua_pushnumber( state , dotResult );
 	
-	return 1;
+		return 1;
+	
+	}
+	else
+		return 0;
 };
 
 int MOAIBtVector3::_cross( lua_State* L ){return 0;};
