@@ -63,6 +63,9 @@ private:
 public:
 	
 	DECL_LUA_FACTORY ( MOAIBtVector3 )
+//	DECL_ATTR_HELPER ( MOAIBtVector3 )
+	
+//	GET ( MOAIBtVector3*, _mBtVector3, mBtVector3 )
 
 	//----------------------------------------------------------------//
 	void			Destroy						();

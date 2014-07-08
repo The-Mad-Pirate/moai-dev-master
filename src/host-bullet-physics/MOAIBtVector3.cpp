@@ -287,9 +287,43 @@ int MOAIBtVector3::_toArray ( lua_State* L ) {
 
 int MOAIBtVector3::_distance	( lua_State* L ){return 0;};
 int MOAIBtVector3::_distance2( lua_State* L ){return 0;};
-int MOAIBtVector3::_dot( lua_State* L ){return 0;};
+
+//----------------------------------------------------------------//
+/**	@name	dot
+	@text	Returns  the dot product between this MOAIBtVector3 vector  and another MOAIBtVector3
+	@in		MOAIBtVector3 self
+	@in		MOAIBtVector3
+
+	@out		dot product number
+*/
+int MOAIBtVector3::_dot( lua_State* L )
+{
+	MOAI_LUA_SETUP ( MOAIBtVector3, "UU" ) // this macro initializes the 'self' variable and type checks arguments
+	
+	MOAIBtVector3* other = state.GetLuaObject< MOAIBtVector3 >( 2, true );
+	btScalar dotResult = self->mBtVector3->dot( *(other->mBtVector3) );
+	lua_pushnumber( state , dotResult );
+	
+	return 1;
+};
+
 int MOAIBtVector3::_cross( lua_State* L ){return 0;};
-int MOAIBtVector3::_safeNormalize( lua_State* L ){return 0;};
+
+//----------------------------------------------------------------//
+/**	@name	safeNormalize
+	@text	Normalizes current MOAIBtVector3 vector in a safe way
+	@in		MOAIBtVector3 self
+
+	@out		nil
+*/
+int MOAIBtVector3::_safeNormalize( lua_State* L )
+{
+	MOAI_LUA_SETUP ( MOAIBtVector3, "U" ) // this macro initializes the 'self' variable and type checks arguments
+
+	self->mBtVector3->safeNormalize();
+	
+	return 0;
+};
 int MOAIBtVector3::_rotate( lua_State* L ){return 0;};
 int MOAIBtVector3::_angle( lua_State* L ){return 0;};
 int MOAIBtVector3::_triple( lua_State* L ){return 0;};	
@@ -301,7 +335,22 @@ int MOAIBtVector3::_lerp( lua_State* L ){return 0;};
 int MOAIBtVector3::_setMax( lua_State* L ){return 0;};
 int MOAIBtVector3::_setMin( lua_State* L ){return 0;};
 int MOAIBtVector3::_getSkewSymmetricMatrix( lua_State* L ){return 0;};
-int MOAIBtVector3::_setZero( lua_State* L ){return 0;};
+
+//----------------------------------------------------------------//
+/**	@name	setZero
+	@text	Sets a MOAIBtVector3 to a zero length vector
+	@in		MOAIBtVector3 self
+
+	@out		nil
+*/
+int MOAIBtVector3::_setZero( lua_State* L )
+{
+	MOAI_LUA_SETUP ( MOAIBtVector3, "U" ) // this macro initializes the 'self' variable and type checks arguments
+	
+	self->mBtVector3->setZero();
+	
+	return 0;
+};
 int MOAIBtVector3::_isZero( lua_State* L ){return 0;};
 int MOAIBtVector3::_fuzzyZero( lua_State* L ){return 0;};
 int MOAIBtVector3::_maxDot( lua_State* L ){return 0;};
@@ -380,7 +429,6 @@ void MOAIBtVector3::Destroy () {
 	if ( this->mBtVector3 ) {
 		delete this->mBtVector3;
 	}
-
 }
 
 //----------------------------------------------------------------//
