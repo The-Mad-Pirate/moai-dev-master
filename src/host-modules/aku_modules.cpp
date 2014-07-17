@@ -16,6 +16,10 @@ void AKUModulesAppFinalize () {
 		AKUBulletPhysicsAppFinalize ();
 	#endif
 	
+	#if AKU_WITH_ASSIMP
+		AKUAssimpAppFinalize();
+	#endif
+	
 	#if AKU_WITH_BOX2D
 		AKUBox2DAppFinalize ();
 	#endif
@@ -74,6 +78,10 @@ void AKUModulesAppInitialize () {
 	
 	#if AKU_WITH_BULLET_PHYSICS
 		AKUBulletPhysicsAppInitialize ();
+	#endif
+
+	#if AKU_WITH_ASSIMP
+		AKUAssimpAppInitialize();
 	#endif	
 
 	#if AKU_WITH_BOX2D
@@ -135,6 +143,10 @@ void AKUModulesContextInitialize () {
 	#if AKU_WITH_BULLET_PHYSICS
 		AKUBulletPhysicsContextInitialize ();
 	#endif
+	
+	#if AKU_WITH_ASSIMP
+		AKUAssimpContextInitialize();
+	#endif	
 
 	#if AKU_WITH_BOX2D
 		AKUBox2DContextInitialize ();

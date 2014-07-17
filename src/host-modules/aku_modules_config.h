@@ -8,6 +8,10 @@
 		#define AKU_WITH_BULLET_PHYSICS 1
 	#endif
 	
+	#ifndef AKU_WITH_ASSIMP
+		#define AKU_WITH_ASSIMP 1
+	#endif	
+	
 	#ifndef AKU_WITH_BOX2D
 		#define AKU_WITH_BOX2D 1
 	#endif
